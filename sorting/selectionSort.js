@@ -14,3 +14,5 @@ function selectionSort(arr) {
 }
 
 console.log(selectionSort([7,2,9,1,3,8,9]));
+
+// Use to minimize swaps
