@@ -8,11 +8,11 @@ function sumZero(arr) {
 		}
 		else if(sum > 0) {
 			j--;
-		} else(sum < 0) {
+		} else {
 			i++;
 		}
 	}
 	return undefined;
 }
 
-console.log('res',sumZero([-3,1,2,5]));
+console.log('res',sumZero([-3,1,2,5,3]));
