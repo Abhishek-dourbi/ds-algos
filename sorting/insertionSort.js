@@ -43,4 +43,9 @@ function insertionSort(arr) {
 	return arr;
 }
 
+// worst case = O(n^2);
+
+// good for almost sorted array
+// when we have to add the element coming live in an array as we keep one side of array sorted in insertion
+
 console.log(insertionSort([3,14,2,6,1,5]))
