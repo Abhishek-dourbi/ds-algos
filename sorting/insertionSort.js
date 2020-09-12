@@ -43,7 +43,15 @@ function insertionSort(arr) {
 	return arr;
 }
 
+
+// Time complexity
+
+// best case = O(n);
 // worst case = O(n^2);
+// acerage case = O(n^2);
+
+// space complexity
+// O(1)
 
 // good for almost sorted array
 // when we have to add the element coming live in an array as we keep one side of array sorted in insertion

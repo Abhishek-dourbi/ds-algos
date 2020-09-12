@@ -56,3 +56,5 @@ console.log(bubble([2,3,1,5,4]))
 // worst case - O(n^2)
 // average case - O(n^2)
 // best case (almost sorted) - O(n)
+
+// space complexity - O(1)
