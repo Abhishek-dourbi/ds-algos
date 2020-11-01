@@ -43,6 +43,17 @@ class SinglyLinkedList {
 		}
 		return curr;
 	}
+
+	shift() {
+		if(!this.head) return undefined;
+		let temp = this.head;
+		this.head = temp.next;
+		this.length--;
+		if(!this.length) {
+			this.tail = null;
+		}
+		return temp;
+	}
 }
 
 let list = new SinglyLinkedList();
@@ -52,5 +63,5 @@ list.push("third");
 list.push("fourth");
 list.push("fifth");
 list.push("sixth");
-list.pop();
+list.shift();
 console.log(list);
