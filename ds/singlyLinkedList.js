@@ -78,6 +78,15 @@ class SinglyLinkedList {
 		}
 		return curr;
 	}
+
+	set(index, value) {
+		let node = this.get(index);
+		if(node) {
+			node.val = value;
+			return true;
+		}
+		return false;
+	}
 }
 
 let list = new SinglyLinkedList();
@@ -87,5 +96,5 @@ list.push("third");
 list.push("fourth");
 list.push("fifth");
 list.push("sixth");
-// list.get(2);
-console.log(list.get(5));
+list.set(2, "SECOND");
+console.log(list.get(2));
