@@ -129,13 +129,6 @@ class SinglyLinkedList {
 			pre = node;
 			node = next;
 		}
-
-		// for(let i = 0; i < this.length; i++) {
-		// 	next = node.next;
-		// 	node.next = pre;
-		// 	pre = node;
-		// 	node = next
-		// }
 		return this;
 	}
 
@@ -164,3 +157,12 @@ list.push("sixth");
 list.print();
 // console.log(list)
 // console.log(list.reverse());
+
+
+
+complexities - 
+
+Insertion - O(1)
+Removal - O(1) or O(n)
+Searching - O(n)
+Access - O(n)
