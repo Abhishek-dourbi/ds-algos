@@ -23,10 +23,34 @@ class SinglyLinkedList {
 		this.length++;
 		return this
 	}
+
+	pop() {
+		if(!this.head) return undefined;
+
+		let curr = this.head;
+		let pre = curr;
+
+		while(curr.next) {
+			pre = curr;
+			curr = curr.next;
+		}
+		this.tail = pre;
+		this.tail.next = null;
+		this.length--;
+		if(!this.length) {
+			this.head = null;
+			this.tail = null;
+		}
+		return curr;
+	}
 }
 
 let list = new SinglyLinkedList();
 list.push("first");
 list.push("second");
 list.push("third");
-console.log(list)
+list.push("fourth");
+list.push("fifth");
+list.push("sixth");
+list.pop();
+console.log(list);
