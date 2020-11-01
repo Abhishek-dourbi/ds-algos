@@ -87,6 +87,21 @@ class SinglyLinkedList {
 		}
 		return false;
 	}
+
+	insert(index, value) {
+		if(index < 0 || index > this.length) return false;
+		if(!index) return !!this.unShift(value); 
+		if(index === this.length) return !!this.push(value);
+	
+		let node = new Node(value);
+		let pre = this.get(index - 1);
+		let curr = pre.next;
+	
+		node.next = curr;
+		pre.next = node;
+		this.length++;
+		return true;
+	}
 }
 
 let list = new SinglyLinkedList();
@@ -96,5 +111,5 @@ list.push("third");
 list.push("fourth");
 list.push("fifth");
 list.push("sixth");
-list.set(2, "SECOND");
-console.log(list.get(2));
+list.insert(4, "insert");
+console.log(list);
