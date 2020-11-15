@@ -39,7 +39,7 @@ class DoublyLinkedList {
 			poppedNode.pre = null;
 		}
 		this.length--;
-		return poppedNodeode;
+		return poppedNode;
 	}
 
 	shift() {
@@ -54,7 +54,7 @@ class DoublyLinkedList {
 			poppedNode.next = null;
 		}
 		this.length--;
-		return poppedNodeode;
+		return poppedNode;
 	}
 
 	unshift(val) {
@@ -112,15 +112,37 @@ class DoublyLinkedList {
 
 		let foundNode = this.get(index);
 		let newNode = new Node(val);
-
 		let preNode = foundNode.pre;
+
 		preNode.next = newNode;
+
 		newNode.next = foundNode;
 		newNode.pre = preNode;
+
 		foundNode.pre = newNode;
+
 		this.length++;
 
 		return true;
+	}
+
+	remove(index) {
+		if(index < 0 || index >= this.length) return false;
+		if(index === 0) return this.shift();
+		if(index === this.length - 1) return this.pop();
+
+		let poppedNode = this.get(index);
+		let preNode = poppedNode.pre;
+		let nextNode = poppedNode.next;
+
+		preNode.next = nextNode;
+		nextNode.pre = preNode;
+		poppedNode.next = null;
+		poppedNode.pre = null;
+
+		this.length --;
+
+		return poppedNode;
 	}
 }
 
@@ -132,4 +154,4 @@ list.push("third");
 list.push("fourth");
 list.set(3, 'THIRD')
 
-console.log(list);
+console.log(list.remove(0));
