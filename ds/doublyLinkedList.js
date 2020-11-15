@@ -155,3 +155,10 @@ list.push("fourth");
 list.set(3, 'THIRD')
 
 console.log(list.remove(0));
+
+complexities - 
+
+Insertion - O(1)
+Removal - O(1)
+Searching - O(n) or O(n/2)
+Access - O(n)
