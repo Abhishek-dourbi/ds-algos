@@ -144,6 +144,25 @@ class DoublyLinkedList {
 
 		return poppedNode;
 	}
+
+	reverse(){
+        let currNode = this.head;
+        this.tail = currNode;
+        
+        while(currNode) {
+            let pre = currNode.pre;
+            currNode.pre = currNode.next;
+            currNode.next = pre;
+
+            if(currNode.pre) {
+                currNode = currNode.pre;
+            } else {
+                this.head = currNode;
+                break;
+            }
+        }
+        return this;
+    }
 }
 
 let list = new DoublyLinkedList();
