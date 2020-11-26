@@ -82,3 +82,8 @@ tree.insert(5)
 tree.insert(15)
 tree.insert(20)
 console.log(tree.find(10))
+
+complexities - 
+
+Insertion - O(log n)
+Searching - O(log n)
