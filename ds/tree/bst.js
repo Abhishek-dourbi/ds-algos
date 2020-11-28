@@ -74,6 +74,28 @@ class BinarySearchTree {
 		}
 		return false;
 	}
+
+	BFS() {
+		if(!this.root) return undefined;
+
+		let node = this.root;
+		let queue = [];
+		let visited = [];
+
+		queue.push(node);
+
+		while(queue.length) {
+			node = queue.shift();
+			visited.push(node);
+			if(node.left) {
+				queue.push(node.left);
+			}
+			if(node.right) {
+				queue.push(node.right);
+			}
+		}
+		return visited;
+	}
 }
 
 let tree = new BinarySearchTree();
@@ -81,9 +103,9 @@ tree.insert(10)
 tree.insert(5)
 tree.insert(15)
 tree.insert(20)
-console.log(tree.find(10))
+console.log(tree.BFS())
 
-complexities - 
+// complexities - 
 
-Insertion - O(log n)
-Searching - O(log n)
+// Insertion - O(log n)
+// Searching - O(log n)
