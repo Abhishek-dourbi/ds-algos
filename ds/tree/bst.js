@@ -96,14 +96,46 @@ class BinarySearchTree {
 		}
 		return visited;
 	}
+
+	DFS() {
+		if(!this.root) return undefined;
+
+		let node = this.root;
+		let queue = [];
+		let visited = [];
+		let right = [];
+
+		queue.push(node);
+
+		while(queue.length || right.length) {
+			if(queue.length) {
+				node = queue.shift();
+			} else if(right.length) {
+				node = right.pop();
+			}
+
+			visited.push(node.value);
+
+			if(node.left) {
+				queue.push(node.left);
+			}
+			if(node.right) {
+				right.push(node.right);
+			}
+		}
+
+		return visited;
+	}
 }
 
 let tree = new BinarySearchTree();
 tree.insert(10)
-tree.insert(5)
+tree.insert(6)
+tree.insert(8)
+tree.insert(3)
 tree.insert(15)
 tree.insert(20)
-console.log(tree.BFS())
+console.log(tree.DFS())
 
 // complexities - 
 
