@@ -97,33 +97,51 @@ class BinarySearchTree {
 		return visited;
 	}
 
-	DFS() {
+	DFSPreOrder() {
 		if(!this.root) return undefined;
 
-		let node = this.root;
-		let queue = [];
+		// iterative
+
+		// let node = this.root;
+		// let queue = [];
+		// let visited = [];
+		// let right = [];
+
+		// queue.push(node);
+
+		// while(queue.length || right.length) {
+		// 	if(queue.length) {
+		// 		node = queue.shift();
+		// 	} else if(right.length) {
+		// 		node = right.pop();
+		// 	}
+
+		// 	visited.push(node.value);
+
+		// 	if(node.left) {
+		// 		queue.push(node.left);
+		// 	}
+		// 	if(node.right) {
+		// 		right.push(node.right);
+		// 	}
+		// }
+
+		// return visited;
+
+		// recursive
 		let visited = [];
-		let right = [];
 
-		queue.push(node);
-
-		while(queue.length || right.length) {
-			if(queue.length) {
-				node = queue.shift();
-			} else if(right.length) {
-				node = right.pop();
-			}
-
+		function traverse(node) {
 			visited.push(node.value);
-
 			if(node.left) {
-				queue.push(node.left);
+				traverse(node.left)
 			}
 			if(node.right) {
-				right.push(node.right);
+				traverse(node.right);
 			}
 		}
 
+		traverse(this.root);
 		return visited;
 	}
 }
@@ -135,7 +153,7 @@ tree.insert(8)
 tree.insert(3)
 tree.insert(15)
 tree.insert(20)
-console.log(tree.DFS())
+console.log(tree.DFSPreOrder())
 
 // complexities - 
 
