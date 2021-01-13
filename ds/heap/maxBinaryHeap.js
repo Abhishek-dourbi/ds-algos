@@ -84,3 +84,13 @@ obj.insert(55);
 obj.extractMax();
 
 console.log(obj.values);
+
+// complexities - 
+
+// Insertion - O(log n)
+// Removal - O(log n)
+// Searching - O(n)
+
+// useful for sorting and creating priority queues
+// No unbalanced structures
+// represent using arrays without pointers
