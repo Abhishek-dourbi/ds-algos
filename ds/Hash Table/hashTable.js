@@ -69,3 +69,8 @@ hash.set('green', 3);
 
 console.log(hash.values());
 
+complexities - 
+
+Insertion - O(1)
+Removal - O(1)
+Access - O(1)
