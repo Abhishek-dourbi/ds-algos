@@ -34,6 +34,32 @@ class HashTable {
 		}
 		return undefined
 	}
+
+	keys() {
+		const keys = [];
+		for(let i = 0; i < this.keyMap.length; i++) {
+			if(this.keyMap[i]) {
+				for(let j = 0; j < this.keyMap[i].length; j++) {
+					keys.push(this.keyMap[i][j][0]);
+				}
+			}
+		}
+		return keys;
+	}
+
+	values() {
+		const values = [];
+		for(let i = 0; i < this.keyMap.length; i++) {
+			if(this.keyMap[i]) {
+				for(let j = 0; j < this.keyMap[i].length; j++) {
+					if(!values.includes(this.keyMap[i][j][1])) {
+						values.push(this.keyMap[i][j][1]);
+					}
+				}
+			}
+		}
+		return values;
+	}
 }
 
 const hash = new HashTable();
@@ -41,4 +67,5 @@ hash.set('red', 1);
 hash.set('blue', 3);
 hash.set('green', 3);
 
-console.log(hash.keyMap);
+console.log(hash.values());
+
