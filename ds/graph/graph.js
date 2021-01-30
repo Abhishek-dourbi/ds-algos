@@ -52,6 +52,7 @@ class Graph {
 	}
 
 	DFSIterative(startingNode) {
+		if(!startingNode || !this.adjacencyList[startingNode]) return null;
 		let arr = [];
 		let visited = {};
 		let result = [];
@@ -67,6 +68,30 @@ class Graph {
 				if(!visited[this.adjacencyList[vertex][i]]) {
 					visited[this.adjacencyList[vertex][i]] = true;
 					arr.push(this.adjacencyList[vertex][i]);
+				}
+			}
+		}
+
+		return result;
+	}
+
+	BFS(startingNode) {
+		if(!startingNode || !this.adjacencyList[startingNode]) return null;
+		let queue = [];
+		let visited = {};
+		let result = [];
+		let vertex;
+
+		queue.push(startingNode);
+		visited[startingNode] = true;
+
+		while(queue.length) {
+			vertex = queue.shift();
+			result.push(vertex);
+			for(let i = 0; i < this.adjacencyList[vertex].length; i++) {
+				if(!visited[this.adjacencyList[vertex][i]]) {
+					visited[this.adjacencyList[vertex][i]] = true;
+					queue.push(this.adjacencyList[vertex][i]);
 				}
 			}
 		}
@@ -91,4 +116,6 @@ graph.addEdge("D", "E");
 graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 
-console.log(graph.DFSIterative ("A"));
+// console.log(graph.DFSIterative("A"));
+console.log(graph.BFS("A"));
+
