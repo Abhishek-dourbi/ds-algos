@@ -28,12 +28,45 @@ class Graph {
 		}
 		delete this.adjacencyList[vertex];
 	}
+
+	DFSRecursive(startingVertex) {
+		if(!startingVertex || !this.adjacencyList[startingVertex]) return null;
+		let visited = {};
+		let result = [];
+		let adjacencyList = this.adjacencyList;
+
+		function helper(vertex) {
+			if(!vertex) return null;
+			visited[vertex] = true;
+			result.push(vertex);
+
+			for(let i = 0; i < adjacencyList[vertex].length; i++) {
+				if(!visited[adjacencyList[vertex][i]]) {
+					helper(adjacencyList[vertex][i]);
+				}
+			}
+		}
+
+		helper(startingVertex);
+		return result;
+	}
 }
 
 const graph = new Graph();
-graph.addVertex("first");
-graph.addVertex("second");
-graph.addEdge("first", "second");
-graph.removeVertex("second");
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
 
-console.log(graph.adjacencyList);
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E ", "F");
+
+
+console.log(graph.DFSRecursive("A"));
