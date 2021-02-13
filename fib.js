@@ -3,6 +3,9 @@
 // 	return fib(n - 1) + fib(n - 2);
 // }
 
+// TIme complexity
+// O(2^n);
+
 // enter memoization
 
 function fib(n, memo = []) {
@@ -12,5 +15,8 @@ function fib(n, memo = []) {
 	memo[n] = res;
 	return res;
 }
+
+// TIme complexity
+// O(n);
 
 console.log(fib(10))
